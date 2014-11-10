@@ -57,13 +57,7 @@ void loop() {
 void override() {
   //if the switch is flipped to on, turn all lights on. if flipped to off, turn all lights off
   
-  int readState = digitalRead(switchPin); //off is HIGH, on is LOW. Reads the pin
-  Serial.print("prevState:");
-  Serial.print(prevState);
-  Serial.print(" readstate: ");
-  Serial.print(readState);
-  Serial.print("\n");
-  
+  int readState = digitalRead(switchPin); //off is HIGH, on is LOW. Reads the pin  
   if(prevState != readState){//if the read state is DIFFERENT then the last known statereadState
     Serial.print("Switching \n");
     if(readState == 0){
