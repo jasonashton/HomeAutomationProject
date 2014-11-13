@@ -1,0 +1,6 @@
+#!/bin/bash
+
+rm /var/www/html/*
+cp /home/jason/Documents/HomeAutomation/website/html/* /var/www/html/
+
+echo "Copied"
