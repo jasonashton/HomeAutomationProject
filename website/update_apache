@@ -3,4 +3,8 @@
 rm /var/www/html/*
 cp /home/jason/Documents/HomeAutomation/website/html/* /var/www/html/
 
+rm /usr/lib/cgi-bin/*
+cp /home/jason/Documents/HomeAutomation/website/cgi/* /usr/lib/cgi-bin/
+chmod 755 /usr/lib/cgi-bin/*
+
 echo "Copied"
