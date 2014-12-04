@@ -1,0 +1,12 @@
+carrier: ''
+first_name: Morgan
+gmail_address: 15jawitzmo@fpsct.org
+gmail_password: 15120fps
+keys:
+  GOOGLE_SPEECH: AIzaSyAaJXVsq57ImDzMdA5nb3B5Mye3DAFchfU
+location: '06032'
+phone_number: ''
+prefers_email: true
+stt_engine: google
+tts_engine: google-tts
+timezone: America/New_York
