@@ -1,24 +1,28 @@
 '''Controls the programming of the database. Will also include the indentifying function'''
 import sql
 import os
+import esp
 
-def update():
-	print("Please verify the room you're looking for isn't on this list")
+def program():
+	'''
+	print("Will the device reside in one of these already-programmed rooms?")
 	sql.list("")
-	print("Continue? (y/n)")
-	answer = input("")
-	if answer == "y":
-		sql.program()
-
+	print("(y/n)")
+	answer = input('')
+	if answer == "n":
+		print("What is the name of the room this device will be in?")
+		room = input('')
+		print("You said: " + room)'''
+	esp.main()
 def removedb():
 	sql.removedb()
 
 def main():
 	sql.dbcheck()
-	print("Do you wish to update or remove your database? (update/remove/mainmenu)")
+	print("Do you wish to program a device or remove your database? (program/remove/mainmenu)")
 	answer = input('')
-	if answer == "update":
-		update()
+	if answer == "program":
+		program()
 	elif answer == "remove":
 		removedb()
 	elif answer == "mainmenu":
