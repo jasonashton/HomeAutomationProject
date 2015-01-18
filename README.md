@@ -1,11 +1,9 @@
-HomeAutomationProject
+ORCA Home Automation
 =====================
-This is the code for our Open Source Arduino project.
+ORCA is Really Cool Automation
 
-The Receiver code is based on the RC-Switch library, 
-which is available at https://code.google.com/p/rc-switch/
+Created in 2014 by Jason Ashton and Morgan Jawitz of Farmington High School, CT
 
-It is designed to work with the Raspberry Pi port of RC-Switch,
-though theoretically any RF transmitter could send the proper
-codes and it would work.
+ORCA is a user expandable template for home automation. ORCA will provide the tools you need to expand and recreate your own home automation system. 
 
+The basis is the ESP8266, a serial to wifi chip from China. We will be using it to build an AC 120v wifi-connected switch. This will be controlled using python software and sqlite database. 
