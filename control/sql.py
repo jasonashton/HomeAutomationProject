@@ -8,11 +8,11 @@ database = "rooms.sqlite"
 dbloc = ',.' + database
 table = "rooms"
 
-def entry(id, room, device, ip, status):
+def entry(room, device, ip, status):
     conn = sqlite3.connect(dbloc)
     c = conn.cursor()
     
-    c.execute("INSERT INTO rooms VALUES (%d,'%s', '%s', '%s', '%s')" % (id, room, device, ip, status))
+    c.execute("INSERT INTO rooms VALUES ('%s', '%s', '%s', '%s')" % (room, device, ip, status))
     
     conn.commit()
     conn.close
@@ -24,9 +24,9 @@ def createdb():
 	conn = sqlite3.connect(dbloc)
 	c = conn.cursor()
 	
-	c.execute("CREATE TABLE rooms (ID number, room text, device text, IP text, status text)")
-	entry(1, "your_bedroom", "lamp", "10.0.1.17", "OFF")
-	entry(2, "living_room", "lamp", "10.0.1.18", "ON")
+	c.execute("CREATE TABLE rooms (room text, device text, IP text, status text)")
+	entry("your_bedroom", "lamp", "10.0.1.17", "OFF")
+	entry("living_room", "lamp", "10.0.1.18", "ON")
 	print("Created Database with Sample Values")
 	
 	for row in c.execute('SELECT * FROM rooms'):
@@ -52,13 +52,14 @@ def program():
     
 	
 
-def list(col):
+def list(opt):
 	conn = sqlite3.connect(dbloc)
 	c = conn.cursor()
 	
-	for row in c.execute('SELECT room FROM rooms'):
-		print(str(row)[2:-3])
-	
+	for row in c.execute("SELECT * FROM rooms %s" % opt):
+	#	print(str(row)[2:-3])
+		print(row)
+
 	conn.commit()
 	conn.close()
 
