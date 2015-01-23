@@ -1,7 +1,7 @@
 ORCA Home Automation
 =====================
-ORCA is Really Cool Automation
-
+ORCA is Really Cool Automation  
+[![Code Health](https://landscape.io/github/jasonashton/ORCA-Home-Automation/master/landscape.svg)](https://landscape.io/github/jasonashton/ORCA-Home-Automation/master)  
 Created in 2014 by Jason Ashton and Morgan Jawitz of Farmington High School, CT
 
 ORCA is a user expandable template for home automation. ORCA will provide the tools you need to expand and recreate your own home automation system. 
