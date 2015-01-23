@@ -1,7 +1,7 @@
 ORCA Home Automation
 =====================
 <h2>Overview</h2>
-ORCA is Really Cool Automation
+ORCA is Really Cool Automation  
 [![Code Health](https://landscape.io/github/jasonashton/ORCA-Home-Automation/master/landscape.svg)](https://landscape.io/github/jasonashton/ORCA-Home-Automation/master)  
 Created in 2014 by Jason Ashton and Morgan Jawitz of Farmington High School, CT
 
