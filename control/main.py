@@ -30,4 +30,4 @@ def mainmenu():
 while not complete:
     answer = mainmenu()
     if answer == "exit":
-        quit = True
+        complete = True
