@@ -11,4 +11,5 @@ The basis is the ESP8266, a serial to wifi chip from China. We will be using it 
 
 <h2>Requirements</h2>
 Raspberry Pi running Raspbian
-Serial-USB for ESP8266 flashing code
+Serial-USB for ESP8266 flashing code  
+Django Python web framework
