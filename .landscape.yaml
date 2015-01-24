@@ -1,0 +1,3 @@
+ignore-paths:
+    - esp8266/esptool.py
+    - esp8266/luatool.py
