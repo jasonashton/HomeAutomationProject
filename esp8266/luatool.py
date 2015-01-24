@@ -26,40 +26,40 @@ version="0.6.1"
 
 def writeln(data, check = 1):
     if s.inWaiting() > 0:
-       s.flushInput()
+        s.flushInput()
     if len( data ) > 0:
         sys.stdout.write("\r\n->")
         sys.stdout.write(data.split("\r")[0])
     s.write(data)
     sleep(0.3)
     if check > 0 :
-       line = ''
-       char = ''
-       while char != chr(62) : # '>'
-           char = s.read(1)
-           if char == '' :
-               raise Exception('No proper answer from MCU')
-           if char == chr(13) or char == chr(10) :
-              if line != '':
-                 if line+'\r' == data :
-                    sys.stdout.write(" -> ok")
-                 else :
-                    if line[:4] == "lua:" :
-                       sys.stdout.write("\r\n\r\nLua ERROR: %s" % line)
-                       raise Exception('ERROR from Lua interpreter\r\n\r\n')
+        line = ''
+        char = ''
+        while char != chr(62) : # '>'
+            char = s.read(1)
+            if char == '' :
+                raise Exception('No proper answer from MCU')
+            if char == chr(13) or char == chr(10) :
+                if line != '':
+                    if line+'\r' == data :
+                        sys.stdout.write(" -> ok")
                     else :
-                       data = data.split("\r")[0]
-                       sys.stdout.write("\r\n\r\nERROR")
-                       sys.stdout.write("\r\n send string    : '%s'" % data)
-                       sys.stdout.write("\r\n expected echo  : '%s'" % data)
-                       sys.stdout.write("\r\n but got answer : '%s'" % line)
-                       sys.stdout.write("\r\n\r\n")
-                       raise Exception('Error sending data to MCU\r\n\r\n')
-                 line = ''
-           else :
-              line += char
+                        if line[:4] == "lua:" :
+                            sys.stdout.write("\r\n\r\nLua ERROR: %s" % line)
+                            raise Exception('ERROR from Lua interpreter\r\n\r\n')
+                        else :
+                            data = data.split("\r")[0]
+                            sys.stdout.write("\r\n\r\nERROR")
+                            sys.stdout.write("\r\n send string    : '%s'" % data)
+                            sys.stdout.write("\r\n expected echo  : '%s'" % data)
+                            sys.stdout.write("\r\n but got answer : '%s'" % line)
+                            sys.stdout.write("\r\n\r\n")
+                            raise Exception('Error sending data to MCU\r\n\r\n')
+                    line = ''
+            else :
+                line += char
     else:
-       sys.stdout.write(" -> send without check")
+        sys.stdout.write(" -> send without check")
 
 def writer(data):
     writeln("file.writeline([[" + data + "]])\r")
@@ -121,9 +121,9 @@ if __name__ == '__main__':
 
     # restart or dofile
     if args.restart:
-       writeln("node.restart()\r")
+        writeln("node.restart()\r")
     if args.dofile: # never exec if restart=1
-       writeln("dofile(\""+args.dest+"\")\r",0)
+        writeln("dofile(\""+args.dest+"\")\r",0)
 
     # close serial port
     s.flush()

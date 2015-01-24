@@ -1,6 +1,0 @@
-Room		Device		IP		Status
-
-Bedroom		Lamp		10.0.1.26	ON
-Bedroom		TV		10.0.1.23	OFF
-Living_Room	Lamp_right	10.0.1.24	ON
-Office		Stereo		10.0.1.42	OFF
