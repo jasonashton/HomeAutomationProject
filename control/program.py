@@ -2,30 +2,16 @@
 import sql
 import esp
 
-def program():
-    '''
-    print("Will the device reside in one of these already-programmed rooms?")
-    sql.dblist("")
-    print("(y/n)")
-    answer = input('')
-    if answer == "n":
-            print("What is the name of the room this device will be in?")
-            room = input('')
-            print("You said: " + room)'''
-    esp.main()
-def removedb():
-    sql.removedb()
-
 def main():
     sql.dbcheck()
-    print("Do you wish to program a device or remove your database? (program/remove/mainmenu)")
+    print("Do you wish to program a room or remove your database? (program/remove/mainmenu)")
     answer = input('')
     if answer == "program":
-        program()
+        sql.program()
     elif answer == "remove":
-        removedb()
+        sql.removedb()
     elif answer == "mainmenu":
-        return "hello"
+        pass
     else:
         print("Invalid Syntax")
         main()

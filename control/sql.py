@@ -42,24 +42,34 @@ def removedb():
     if answer == "y":
         os.remove("./%s" % dbloc)
         os.remove("./%s" % database)
+
 def program():
-    print("What is the name of the room you wish to add?")
+    print("What is the name of the room it is in?")
     room = input('')
-    print("What is the number you'd like to assign?")
-    number = input('')
-    entry(int(number), room, "10.0.1.10", "OFF")
+
+    print("What is the device name?")
+    device = input('')
+
+    print("What is the IP address of this device?")
+    ip = input('')
+
+    print("What is the current status? ON/OFF")
+    status = input('')
+    
+    entry(room, device, ip, status)
     print("Entry successful")
 
 
 
-def dblist(opt):
+def dblist(column, opt):
     conn = sqlite3.connect(dbloc)
     c = conn.cursor()
-
-    for row in c.execute("SELECT * FROM rooms %s" % opt):
+    query = "SELECT {:s} FROM rooms {:s}".format(column, opt)
+    for row in c.execute(query):
     #       print(str(row)[2:-3])
         print(row)
-
+        if column == "IP":
+            return(row)
     conn.commit()
     conn.close()
 
@@ -75,3 +85,10 @@ def dbcheck():
             sys.exit('Declined to create DB')
         else:
             dbcheck()
+
+if __name__ == "__main__":
+    conn = sqlite3.connect(dbloc)
+    c = conn.cursor()
+    for row in c.execute("SELECT IP FROM rooms WHERE room = 'bedroom' and device = 'esp'"):
+        print(row)
+

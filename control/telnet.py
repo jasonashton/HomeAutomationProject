@@ -2,8 +2,8 @@
 
 import socket
 
-def sendpacket(packet):
-    TCP_IP = '10.0.1.17'
+def sendpacket(ip, packet):
+    TCP_IP = ip
     TCP_PORT = 23
     MESSAGE = packet.encode('utf-8')
 
@@ -12,3 +12,8 @@ def sendpacket(packet):
     s.send(MESSAGE)
     s.close()
     return "Successful Sending"
+
+def main(ip):
+    print("What is the message?")
+    message = input('')
+    sendpacket(str(ip), message)
