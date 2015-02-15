@@ -1,21 +1,19 @@
 #!/bin/python3
 import sql
+import telnet
 
 query = "WHERE "
 
 def prompt():
     sql.dbcheck()
-    print("Press enter if you know the room, or 'list' to list the rooms you have programmed (enter/list/mainmenu)")
-    answer = input('')
-    if answer == "list":
-        sql.dblist("")
-        prompt()
-    elif answer == "mainmenu":
-        pass
-    else:
-        room()
-        device()
-        sql.dblist(query)
+    print("Here is your programmed entries:")
+    sql.dblist("*","")
+    room()
+    device()
+    sql.dblist("*", query)
+    print("Opening telnet...")
+    ip = str(sql.dblist("IP", query))[2,-3]
+    telnet.main(ip)
 
 def room():
     global query
