@@ -4,8 +4,8 @@ import sqlite3
 import os
 import sys
 
-database = "rooms.sqlite"
-dbloc = ',.' + database
+database = "database/rooms.sqlite"
+dbloc = "database/,.rooms.sqlite"
 table = "rooms"
 
 def entry(room, device, ip, status):
