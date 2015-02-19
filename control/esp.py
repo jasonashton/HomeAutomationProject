@@ -21,13 +21,15 @@ def luacode():
 
     os.system("../esp8266/luatool.py %s" % luaflags)
 def main():
-    print("firmware update or lua upload? (firmware/lua/mainmenu)")
+    print("1.firmware update\n\
+2. lua upload?\n\
+3. Return")
     answer = input('')
-    if answer == "firmware":
+    if answer == "1":
         firmware()
-    elif answer == "lua":
+    elif answer == "2":
         luacode()
-    elif answer == "mainmenu":
+    elif answer == "3":
         pass
     else:
         print("Invalid syntax")
