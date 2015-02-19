@@ -1,6 +1,5 @@
 '''Controls the programming of the database. Will also include the indentifying function'''
 import sql
-import esp
 
 def main():
     sql.dbcheck()
