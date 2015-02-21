@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 '''Controls the SQLite interfaces'''
 
 import sqlite3
@@ -7,15 +8,6 @@ import sys
 database = "database/rooms.sqlite"
 dbloc = "database/,.rooms.sqlite"
 table = "rooms"
-
-def entry(room, device, ip, status):
-    conn = sqlite3.connect(dbloc)
-    c = conn.cursor()
-
-    c.execute("INSERT INTO rooms VALUES ('%s', '%s', '%s', '%s')" % (room, device, ip, status))
-
-    conn.commit()
-    conn.close()
 
 def createdb():
     f = open(database, 'w')
@@ -43,6 +35,16 @@ def removedb():
         os.remove("./%s" % dbloc)
         os.remove("./%s" % database)
 
+
+def entry(room, device, ip, status):
+    conn = sqlite3.connect(dbloc)
+    c = conn.cursor()
+
+    c.execute("INSERT INTO rooms VALUES ('%s', '%s', '%s', '%s')" % (room, device, ip, status))
+
+    conn.commit()
+    conn.close()
+
 def program():
     print("What is the name of the room it is in?")
     room = input('')
@@ -60,16 +62,15 @@ def program():
     print("Entry successful")
 
 
-
 def dblist(column, opt):
     conn = sqlite3.connect(dbloc)
     c = conn.cursor()
     query = "SELECT {:s} FROM rooms {:s}".format(column, opt)
     for row in c.execute(query):
-    #       print(str(row)[2:-3])
-        print(row)
         if column == "IP":
             return(row)
+        else:
+            print(row)
     conn.commit()
     conn.close()
 
@@ -85,10 +86,3 @@ def dbcheck():
             sys.exit('Declined to create DB')
         else:
             dbcheck()
-
-if __name__ == "__main__":
-    conn = sqlite3.connect(dbloc)
-    c = conn.cursor()
-    for row in c.execute("SELECT IP FROM rooms WHERE room = 'bedroom' and device = 'esp'"):
-        print(row)
-

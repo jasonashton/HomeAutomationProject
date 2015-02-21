@@ -1,4 +1,6 @@
+#!/usr/bin/python3
 import os
+import main
 
 def firmware():
     port = "/dev/ttyUSB0"
@@ -20,17 +22,17 @@ def luacode():
     luaflags = "--port " + port + " --src ../esp8266/init.lua --dest init.lua"
 
     os.system("../esp8266/luatool.py %s" % luaflags)
-def main():
+def prompt():
     print("1.firmware update\n\
 2. lua upload?\n\
-3. Return")
+3. return")
     answer = input('')
     if answer == "1":
         firmware()
     elif answer == "2":
         luacode()
     elif answer == "3":
-        pass
+        main.start()
     else:
         print("Invalid syntax")
-        main()
+        prompt()

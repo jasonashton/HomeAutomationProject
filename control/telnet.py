@@ -1,5 +1,6 @@
-#!/bin/python3
+#/!usr/bin/python3
 
+import main
 import socket
 
 def sendpacket(ip, packet):
@@ -16,9 +17,10 @@ def sendpacket(ip, packet):
     
     except OSError:
         print("Error sending. Check your parameters and the device itself.")
+        main.start()
 
 
-def main(ip):
+def prompt(ip):
     print("What is the message?")
     message = input('')
     sendpacket(str(ip), message)

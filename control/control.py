@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/python3
 import sql
 import telnet
 
@@ -12,8 +12,8 @@ def prompt():
     device()
     sql.dblist("*", query)
     print("Opening telnet...")
-    ip = str(sql.dblist("IP", query))[2,-3]
-    telnet.main(ip)
+    ip = str(sql.dblist("IP", query))[2:-3]
+    telnet.prompt(ip)
 
 def room():
     global query
@@ -26,3 +26,6 @@ def device():
     print("Please type the device")
     device = input('')
     query = query + ("device = '%s'" % device)
+
+if __name__ == "__main__":
+    prompt()
