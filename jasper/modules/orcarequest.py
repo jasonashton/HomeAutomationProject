@@ -78,7 +78,7 @@ def sendrequest():
     #print room
     #os.chdir(r'/home/pi/orca')
     
-    os.startfile('~/ORCA-Home-Automation/control/main.py -r %s -d %s -s %s > test.txt" %(room, device, status)')
+    open('~/ORCA-Home-Automation/control/main.py -r %s -d %s -s %s > test.txt" %(room, device, status)')
     speak.say("%s %s turned %s bitch" %(room, device, status))
     
     #print "main.py -r %s -d %s -s %s" %(room, device, status)
