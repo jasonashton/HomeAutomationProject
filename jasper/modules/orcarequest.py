@@ -31,7 +31,7 @@ def getrequest():
     global speak
     speak.say("What do you want to do?")
     text = speak.activeListen()
-    createarray(text3)
+    createarray(text)
 
 def createarray(text):
     request = text.split()
@@ -57,9 +57,9 @@ def getstatus(request):
 def checkstatus():
     global status 
     global speak
-    if status == "on":
+    if status == "ON":
         sendrequest()
-    if status == "off":
+    if status == "OFF":
         sendrequest()
     else:
         speak.say ("error, please specify status")
