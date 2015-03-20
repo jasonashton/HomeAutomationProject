@@ -46,7 +46,7 @@ def getdevice(request):
     global device
     postion = request[3]
     appliance = request[4]
-    device = "%s_%s" %(postion, applaence)
+    device = "%s_%s" %(postion, appliance)
     getstatus(request)
 
 def getstatus(request):
