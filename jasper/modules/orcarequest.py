@@ -83,7 +83,7 @@ def sendrequest():
     
     #print "main.py -r %s -d %s -s %s" %(room, device, status)
 
-def hanndle(text, mic, profile):
+def handle(text, mic, profile):
     global speak
     speak = mic 
     createarray(text)
