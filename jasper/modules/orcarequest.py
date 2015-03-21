@@ -78,7 +78,8 @@ def sendrequest():
     #print room
     #os.chdir(r'/home/pi/orca')
     
-    open('~/ORCA-Home-Automation/control/main.py -r %s -d %s -s %s > test.txt" %(room, device, status)')
+    os.system("python3 ~/ORCA-Home-Automation/control/main.py -r %s -d %s -s %s > test.txt" %(room, device, status))
+    
     speak.say("%s %s turned %s bitch" %(room, device, status))
     
     #print "main.py -r %s -d %s -s %s" %(room, device, status)
@@ -90,6 +91,6 @@ def handle(text, mic, profile):
 
 
 
-#Room, device, intended status   turn on bedroom desk lamp 
+#Room, device, intended status  turn on bedroom desk lamp 
 
 
