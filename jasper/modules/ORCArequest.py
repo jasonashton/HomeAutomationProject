@@ -52,10 +52,9 @@ def getdevice(request):
 def getstatus(request):
     global status
     status = request[1]
-    checkstatus()
+    checkstatus(status)
 
-def checkstatus():
-    global status 
+def checkstatus(status):
     global speak
     if status == "ON":
         sendrequest()
