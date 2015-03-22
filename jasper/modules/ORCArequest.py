@@ -79,7 +79,7 @@ def sendrequest():
     
     os.system("python3 ~/ORCA-Home-Automation/control/main.py -r %s -d %s -s %s > test.txt" %(room, device, status))
     
-    speak.say("%s %s turned %s bitch" %(room, device, status))
+    speak.say("%s %s turned %s" %(room, device, status))
     
     #print "main.py -r %s -d %s -s %s" %(room, device, status)
 
